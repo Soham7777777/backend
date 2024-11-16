@@ -27,7 +27,7 @@ def ensure_configuration_availability(instance_path: str) -> str:
         except Exception as e:
             click.echo(click.style(f"Cannot create instance directory.\n{str(e)}", fg='red', bold=True))
             sys.exit()
-    profile = os.getenv('PROFILE', 'Development')
+    profile = os.getenv('PROFILE', 'Deployment')
     abs_config_path = os.path.join(instance_path, profile+'.toml')
     if not os.path.exists(abs_config_path):
         click.echo(click.style(f"The configuration file '{profile}.toml' is missing at {instance_path}.", fg='red', bold=True), nl=False)
